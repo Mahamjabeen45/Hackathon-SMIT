@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hackthon</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- fonts  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <section class="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-3" href="#"><img src="smit.png" alt="" srcset="" height="90px" width="190px"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active fs-5 text-primary me-5" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active fs-5 me-5" aria-current="page" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active fs-5 me-5" aria-current="page" href="#blogs">Our blogs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active fs-5 me-5" aria-current="page" href="#contact">Contact</a>
+            </li>
+
+
+          </ul>
+          <form class="d-flex">
+            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+            <!-- <button class="btn me-5 btn-outline-success" type="submit">Search</button> -->
+          </form>
+        </div>
+      </div>
+    </nav>
+  </section>
+  <!-- slider -->
+  <div class="custom-slider">
+    <div class="slider-wrapper">
+      <i id="left" class="fa-solid fa-angle-left"></i>
+      <div class="mycarousel">
+        <img class="slider-image" src="https://i.pinimg.com/originals/63/89/bc/6389bc75f8e8eaf5627c243d4e85ac5a.jpg"
+          alt="img" draggable="false">
+        <img class="slider-image"
+          src="https://img.freepik.com/premium-vector/e-commerce-discount-illustration-template_124507-1716.jpg?w=2000"
+          alt="img" draggable="false">
+        <img class="slider-image"
+          src="https://cdn4.vectorstock.com/i/1000x1000/77/48/smartphone-shopping-e-commerce-discount-isolated-vector-10587748.jpg"
+          alt="img" draggable="false">
+        <img class="slider-image"
+          src="https://www.web-ideas.com.au/uploads/110/302/Guide-to-Using-Special-Offers-on-Your-E-commerce-Website.jpg"
+          alt="img" draggable="false">
+        <img class="slider-image"
+          src="https://previews.123rf.com/images/daiwa2000/daiwa20001901/daiwa2000190100004/117997763-banner-big-sale-e-commerce-vector.jpg"
+          alt="img" draggable="false">
+        <img class="slider-image"
+          src="https://previews.123rf.com/images/robuart/robuart1901/robuart190103484/125863924-sale-on-all-products-90-percent-reduction-shop-discounts-isolated-banner-vector-shopping-basket-with.jpg?fj=1"
+          alt="img" draggable="false">
+      </div>
+      <i id="right" class="fa-solid fa-angle-right"></i>
+    </div>
+  </div>
+
+  <section class="my-5">
+    <!-- cart Screen -->
+    <div class="cart" id="cart">
+
+      <div class="cart-head">
+        <h3 class="closeBtn" onclick="closeBtn()">x</h3>
+        <center>
+          <h1>my Cart</h1>
+        </center>
+      </div>
+
+      <div class="cart-body" id="cart-body">
+        <center>your cart is empty...</center>
+      </div>
+
+      <div class="cart-footer">
+        <center>Total Price: <span id="cartTotal">0</span> PKR</center>
+        <center><button class="btn" onclick="clearCart()">clear cart</button></center>
+      </div>
+
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar row">
+      <div class="col-4 ">
+        <div class="logo ">Search <span class="text-primary ">Filter</span></div>
+      </div>
+      <div class="col-6 ">
+        <input type="text" class="search-input  me-5 " placeholder="Search..." oninput="handleSearch(this.value)" />
+
+      </div>
+    </div>
+    <div class="me-auto ">
+      <b class="cartIcon " onclick="toggleCart()">cart <span id="cartLength"> 0</span></b>
+    </div>
+    <div class="product-section my-5 " id="productSection"></div>
+
+  </section>
+
+  <section id="contact ">
+    <div class="container-form my-5">
+      <div class="form-box">
+        <h1 id="title">Sign Up</h1>
+        <form onsubmit="return validateForm()">
+          <div class="input-group-form">
+            <div class="input-field-form">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" placeholder="User Name" id="username">
+            </div>
+            <p id="userError" class="error"></p>
+
+            <div class="input-field-form" id="nameField">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="email" placeholder="Email" id="email">
+            </div>
+            <p id="emailerror" class="error"></p>
+
+            <div class="input-field-form">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" placeholder="Password" id="password">
+            </div>
+            <p id="passerror" class="error"></p>
+
+            <div>
+              <p>Lost password <a href="#">Click Here!</a></p>
+            </div>
+          </div>
+          <div class="btn-field">
+            <button type="button" id="signupBtn">Sign Up</button>
+            <button type="button" id="signinBtn" class="disable">Sign In</button>
+          </div>
+          <input type="submit">
+          <!-- <button>submit</button> -->
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="py-3 text-center" id="blogs">
+    <div class="container">
+      <div class="text-center my-5">
+        <h1>our <span class="text-primary">blogs</span></h1>
+        <hr class="w-25 m-auto">
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-4 col-lg-4 col-12">
+          <div class="card" style="width: 18rem;">
+            <img
+              src="https://media.istockphoto.com/id/1213258486/vector/hackathon-banner-illustration-abstract-futuristic-background-with-glitch-effect-in-neon.jpg?s=612x612&w=0&k=20&c=coVk4_1Xe_GM2NmRVPAMemmreVs7NTo6PaRKe-g_Phk="
+              class="card-img-top img-fluid">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-12">
+          <div class="card" style="width: 18rem;">
+            <img
+              src="https://media.istockphoto.com/id/1213258486/vector/hackathon-banner-illustration-abstract-futuristic-background-with-glitch-effect-in-neon.jpg?s=612x612&w=0&k=20&c=coVk4_1Xe_GM2NmRVPAMemmreVs7NTo6PaRKe-g_Phk="
+              class="card-img-top img-fluid">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-12">
+          <div class="card" style="width: 18rem;">
+            <img
+              src="https://media.istockphoto.com/id/1213258486/vector/hackathon-banner-illustration-abstract-futuristic-background-with-glitch-effect-in-neon.jpg?s=612x612&w=0&k=20&c=coVk4_1Xe_GM2NmRVPAMemmreVs7NTo6PaRKe-g_Phk="
+              class="card-img-top img-fluid">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-light text-dark pt-5 pb-4 my-4 ">
+    <div class="container-fluid text-center text-md-left text-dark row">
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h5 class="text-upercase mb-4 font-weight-bold text-primary fs-4">SMIT</h5>
+        <p>
+          <a href="#" class="text-dark" style="text-decoration: none;">Home</a>
+        </p>
+        <p>
+          <a href="about.html" class="text-dark" style="text-decoration: none;">About</a>
+        </p>
+        <p>
+          <a href="#blogs" class="text-dark" style="text-decoration: none;">Our Blogs</a>
+        </p>
+        <p>
+          <a href="#contact" class="text-dark" style="text-decoration: none;">Contact us</a>
+        </p>
+      </div>
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h5 class="text-upercase mb-4 font-weight-bold text-primary fs-4 ">Hackathons </h5>
+        <p>
+          <a href="#" class="text-dark" style="text-decoration: none;">Browse hackathons
+          </a>
+        </p>
+        <p>
+          <a href="#" class="text-dark" style="text-decoration: none;">Explore projects
+          </a>
+        </p>
+        <p>
+          <a href="#" class="text-dark" style="text-decoration: none;">Host a hackathon
+          </a>
+        </p>
+        <p>
+          <a href="#" class="text-dark" style="text-decoration: none;">Hackathon guides
+          </a>
+        </p>
+      </div>
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h5 class="text-upercase mb-4 font-weight-bold text-primary fs-4">Portfolio
+        </h5>
+        <p>
+          <a href="#" class="text-dark" style="text-decoration: none;">Your projects
+          </a>
+        </p>
+        <p>
+          <a href="#" class="text-dark" style="text-decoration: none;">Your hackathons
+          </a>
+        </p>
+        <p>
+          <a href="#" class="text-dark" style="text-decoration: none;">Settings
+          </a>
+        </p>
+      </div>
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h5 class="text-upercase mb-4 font-weight-bold text-primary fs-4">Connect
+        </h5>
+        <p>
+          <i class="fa-brands fa-twitter"></i> Twitter
+        </p>
+        <p>
+          <i class="fa-brands fa-discord"></i> Discord
+        </p>
+        <p>
+          <i class="fa-brands fa-facebook"></i> Facebook
+        </p>
+        <p>
+          <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </p>
+      </div>
+
+      <hr class="mb-4 mt-3">
+
+      <div class="row container-fluid">
+
+        <div class="col-md-12 col-lg-12 ps-3">
+          <p class="text-center text-success fs-3">
+            © 2024 ,Developed By Maham Jabeen .
+          </p>
+        </div>
+
+
+      </div>
+
+    </div>
+    <hr class="mb-0 mt-3">
+
+  </footer>
+
+
+
+  <!-- bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
